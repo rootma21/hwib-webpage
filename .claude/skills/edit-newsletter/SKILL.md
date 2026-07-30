@@ -32,12 +32,12 @@ Apply these when writing or revising section content:
   >
   ```
 
-- **Podcast/Audio "Listen" buttons** — do NOT use `btn-primary` (blue). Use inline styles with the site's accent purple (`#6d28d9`) to distinguish podcast CTAs from event registration buttons. Include the 🎙️ emoji.
+- **Podcast/Audio "Listen" buttons** — do NOT use `btn-primary` (dark navy). Use inline styles with the site's accent medium blue (`#387bad`) to distinguish podcast CTAs from event registration buttons. Include the 🎙️ emoji.
 
   ```html
   <a
-    href="https://boston-wib.org/blog/coffeewithcompbio/s2-eN?utm_source=newsletter&utm_medium=email&utm_campaign=a-coffee-with-compbio"
-    style="display:inline-block; padding:0.75rem 1.5rem; border-radius:9999px; background-color:#6d28d9; color:#ffffff; font-weight:600; text-decoration:none;"
+    href="https://houston-wib.org/blog/coffeewithcompbio/s2-eN?utm_source=newsletter&utm_medium=email&utm_campaign=a-coffee-with-compbio"
+    style="display:inline-block; padding:0.75rem 1.5rem; border-radius:9999px; background-color:#387bad; color:#ffffff; font-weight:600; text-decoration:none;"
     >🎙️ Listen on our Site</a
   >
   ```

@@ -16,7 +16,7 @@ function addUtmParams(rawUrl: string, eventSlug?: string): string {
   try {
     const u = new URL(rawUrl);
     if (!u.searchParams.has('utm_source')) {
-      u.searchParams.set('utm_source', 'boston-wib');
+      u.searchParams.set('utm_source', 'houston-wib');
     }
     if (!u.searchParams.has('utm_medium')) {
       u.searchParams.set('utm_medium', 'event-page');

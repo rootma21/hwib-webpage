@@ -1,127 +1,28 @@
 ---
-//import { splitEvents } from '~/content/utils.js'; // Import your event handling logic
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-//import { playlists } from '../utils/data';
-import FormattedDate from '~/components/events/FormattedDate.astro';
-import EventAddress from '~/components/events/EventAddress.astro';
 import Button from '~/components/ui/Button.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
-//import { Icon } from 'astro-icon/components';
-import { SLACK_INVITE_URL } from '~/config/social';
-
-// Get all future events, excluding partner events for homepage display
-const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
-const future_events = (
-  await getCollection('event', ({ data }: CollectionEntry<'event'>) => {
-    const eventEnd = data.endDate ? new Date(data.endDate) : new Date(data.dateTime);
-    return eventEnd > now && !data.partnerEvent;
-  })
-).sort((b, a) => b.data.dateTime.valueOf() - a.data.dateTime.valueOf());
-
-const next_event = future_events[0];
-
-// Breaking Title After Colon or Dash (only if event exists)
-let colonIndex: number | undefined;
-let dashIndex: number | undefined;
-let breakIndex: number | undefined;
-let hasBreak: boolean | undefined;
-let firstLine: string | undefined;
-let secondLine: string | undefined;
-let image_class: string | undefined;
-
-if (next_event) {
-  // Find the first colon or dash
-  colonIndex = next_event.data.title.indexOf(':');
-  dashIndex = next_event.data.title.indexOf('-');
-
-  // Choose the earliest one (if either exists)
-  breakIndex = [colonIndex, dashIndex].filter((i) => i !== -1).sort((a, b) => a - b)[0];
-
-  hasBreak = breakIndex !== undefined;
-  firstLine = hasBreak ? next_event.data.title.slice(0, breakIndex + 1) : next_event.data.title;
-  secondLine = hasBreak ? next_event.data.title.slice(breakIndex + 1).trim() : '';
-  image_class = `border border-gray-200 dark:border-gray-700 shadow mx-auto h-auto rounded-md ${next_event.data.imgpos}`;
-}
 ---
 
-{
-  future_events.length === 0 ? (
-    <Hero2
-      title="New Events Coming Soon!"
-      subtitle="We're brewing up some exciting gatherings and can't wait to share them with you. Check back soon or join our slack to be the first to know!"
-      image={{
-        src: '/photos/eventFairy.png',
-        alt: 'Event Fairy',
-        class: 'dark:[filter:brightness(1.5)_saturate(0.8)]',
-      }}
-      imageBefore={true}
-      padding="py-16"
-      actions={[
-        {
-          variant: 'primary',
-          text: 'Register to Join Our Slack',
-          href: SLACK_INVITE_URL,
-          icon: 'tabler:brand-slack',
-          target: '_blank',
-        },
-        {
-          variant: 'secondary',
-          text: 'View Past Events',
-          href: '/events/archive',
-          icon: 'tabler:history',
-        },
-      ]}
-    />
-  ) : (
-    <div class="relative m-auto max-w-6xl intersect-once intercept-no-queue motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter lg:flex lg:items-center">
-      <div class="lg:w-2/5 {image_class}">
-        <img
-          src={next_event.data.image.src}
-          alt={next_event.data.image.alt}
-          class={`${image_class} hidden lg:block`}
-          transition:name="playlist ${event.id} image"
-        />
-      </div>
-      <div class="sm:p-4 w-full lg:w-2/3 text-center xs:text-left">
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once"
-          transition:name="playlist ${event.id} title"
-        >
-          Upcoming Event
-        </h1>
-        <h2
-          class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once"
-          transition:name="playlist ${event.id} title"
-        >
-          {firstLine}
-          {secondLine && <br />}
-          {secondLine}
-        </h2>
-        <div class="text-md sm:text-lg md:text-xl lg:text-2xl">
-          <div class="mb-4">
-            <FormattedDate date={next_event.data.dateTime} endDate={next_event.data.endDate} />
-          </div>
-          <div class="mb-4">
-            <EventAddress artists={next_event.data.location || []} />
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-4 justify-center xs:justify-start">
-          <Button
-            variant="primary"
-            href={`/events/${next_event.data.slug ?? next_event.id}`}
-            text="Learn More"
-            icon="tabler:square-rounded-arrow-right"
-          />
-          <Button variant="secondary" href={`/events`} text="Browse Events" icon="tabler:calendar" />
-        </div>
-      </div>
-      <img
-        src={next_event.data.image.src}
-        alt={next_event.data.image.alt}
-        class={`${image_class} mt-6 block lg:hidden max-w-sm mx-auto`}
-        transition:name="playlist ${event.id} image"
-      />
-    </div>
-  )
-}
+<div
+  class="relative m-auto max-w-4xl text-center intersect-once intercept-no-queue motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter"
+>
+  <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+    Upcoming Events
+  </h1>
+  <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-6">
+    See what's next and register in a couple of clicks.
+  </p>
+
+  <div class="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 shadow-lg mb-6">
+    <iframe
+      src="https://luma.com/embed/calendar/cal-wG6qhc5JGh2jlXA/events"
+      class="w-full h-[400px]"
+      style="border: none;"
+      allowfullscreen
+      aria-label="HWIB events calendar"
+      loading="lazy"></iframe>
+  </div>
+
+  <div class="flex flex-wrap gap-4 justify-center">
+    <Button variant="primary" href="/events" text="See Upcoming Events" icon="tabler:calendar" />
+  </div>
+</div>

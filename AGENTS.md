@@ -37,31 +37,30 @@ Root-level `vendor/` (outside `src/`) holds build-time Astro integrations (e.g. 
 
 ### Entry Points
 
-| File                                             | Role                                                                            |
-| ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| `src/pages/index.astro`                          | Homepage                                                                        |
-| `src/pages/[...blog]/[...page].astro`            | Blog list with search + category cards                                          |
-| `src/pages/[...blog]/index.astro`                | Individual blog post                                                            |
-| `src/pages/[...blog]/[category]/[...page].astro` | Category page (search + sort + series filter)                                   |
-| `src/pages/[...blog]/[series]/[...page].astro`   | Series page (sort, back link varies by category)                                |
-| `src/pages/[...blog]/[tag]/[...page].astro`      | Tag page                                                                        |
-| `src/pages/newsletter/[...page].astro`           | Newsletter list                                                                 |
-| `src/pages/newsletter/[...slug].astro`           | Individual newsletter issue                                                     |
-| `src/pages/events/index.astro`                   | Events listing (past events section hidden when upcoming events exist)          |
-| `src/pages/events/archive/index.astro`           | Past events archive (client-side search, sort, date range, hide-partner filter) |
+| File                                             | Role                                                                                                                                |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `src/pages/index.astro`                          | Homepage                                                                                                                            |
+| `src/pages/[...blog]/[...page].astro`            | Blog list with search + category cards                                                                                              |
+| `src/pages/[...blog]/index.astro`                | Individual blog post                                                                                                                |
+| `src/pages/[...blog]/[category]/[...page].astro` | Category page (search + sort + series filter)                                                                                       |
+| `src/pages/[...blog]/[series]/[...page].astro`   | Series page (sort, back link varies by category)                                                                                    |
+| `src/pages/[...blog]/[tag]/[...page].astro`      | Tag page                                                                                                                            |
+| `src/pages/newsletter/[...page].astro`           | Newsletter list                                                                                                                     |
+| `src/pages/newsletter/[...slug].astro`           | Individual newsletter issue                                                                                                         |
+| `src/pages/events/index.astro`                   | Events listing — embeds the live Luma calendar (`cal-wG6qhc5JGh2jlXA`) directly, no longer driven by the `event` content collection |
 
 ### Content Collections (`src/content.config.ts`)
 
 Every collection uses the Content Layer API (`loader: glob(...)`) — see the dependency-upgrades skill for the `id`/`render()` migration pattern this implies for `CollectionEntry` consumers.
 
-| Collection   | Description        | Key Fields                                                                                                                                                                                                                 |
-| ------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `post`       | Blog posts         | `publishDate`, `updateDate`, `category`, `series`, `tags`, `authors`, `draft`, `hiddenFromFeed`, `hideHeroImage`, `imageAlt`, `imageDescription`, `imagePosition`, `url`, `listeningTime`                                  |
-| `newsletter` | Newsletter issues  | `publishDate`, `issue`, `title`, `authors`, `imageAlt`, `imageDescription`, `imagePosition` — loader accepts `.md` **and** `.mdx` (issues 008+ are `.mdx`, to embed the `<ExecutiveBoard />` component; see Local Norm 23) |
-| `event`      | Events             | `title`, `dateTime`, `endDate`, `location`, `tags`, `image`, `imgpos`, `partnerEvent`, `partnerOrganization` — **files live in `src/content/meetups/`** (folder name differs from collection name)                         |
-| `committees` | Committee pages    | `title`, `chairs`, `members`                                                                                                                                                                                               |
-| `resources`  | Resource directory | `category`, `tags`, `featured`                                                                                                                                                                                             |
-| `series`     | Series metadata    | `title`, `description`, `image`, `imageAlt`, `imageFit`                                                                                                                                                                    |
+| Collection   | Description        | Key Fields                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `post`       | Blog posts         | `publishDate`, `updateDate`, `category`, `series`, `tags`, `authors`, `draft`, `hiddenFromFeed`, `hideHeroImage`, `imageAlt`, `imageDescription`, `imagePosition`, `url`, `listeningTime`                                                                                                                                                                                                                                                                                     |
+| `newsletter` | Newsletter issues  | `publishDate`, `issue`, `title`, `authors`, `imageAlt`, `imageDescription`, `imagePosition` — loader accepts `.md` **and** `.mdx` (issues 008+ are `.mdx`, to embed the `<ExecutiveBoard />` component; see Local Norm 23)                                                                                                                                                                                                                                                    |
+| `event`      | Events             | `title`, `dateTime`, `endDate`, `location`, `tags`, `image`, `imgpos`, `partnerEvent`, `partnerOrganization` — **files live in `src/content/meetups/`** (folder name differs from collection name). Currently empty: `/events` and the homepage now embed the Luma calendar directly instead of reading from this collection (see Local Norm 12). The schema and `src/pages/events/[...slug].astro` route are kept functional in case per-event pages are wanted again later. |
+| `committees` | Committee pages    | `title`, `chairs`, `members`                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `resources`  | Resource directory | `category`, `tags`, `featured`                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `series`     | Series metadata    | `title`, `description`, `image`, `imageAlt`, `imageFit`                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ### Key Utility Files (`src/utils/`)
 
@@ -79,7 +78,7 @@ Every collection uses the Content Layer API (`loader: glob(...)`) — see the de
 ```
 src/components/
 ├── blog/          # Blog-specific: SinglePost, RelatedPosts, ToBlogLink, Pagination, Tags, Quiz
-├── events/        # Event-specific: EventsTable, FormattedDate, EventAddress, Signup, AddToCalendarButton
+├── events/        # Event-specific: FormattedDate, EventAddress, Signup, AddToCalendarButton
 ├── ui/            # Primitives: Headline, PostListItem, PostList, PostGridItem, Button, Card, NewBadge…
 ├── widgets/       # Page sections: Hero, Features, BlogLatestPosts, UpcomingEvents, Contact, Sponsors…
 ├── common/        # Infra: Metadata, Analytics, ToggleTheme, Image, SocialShare, Banner, Logo, Favicons, CustomStyles
@@ -90,10 +89,9 @@ Every component lives in a folder grouped by content-type (`blog/`, `events/`, `
 
 **Event-specific components (`src/components/events/`):**
 
-- `widgets/UpcomingEvents.astro` — shows the **single next upcoming event** in a hero layout; used on the homepage. Has two buttons: "Learn More" (`btn-primary`) and "Browse Events" (`btn-secondary`), wrapped in a flex container.
-- `events/EventsTable.astro` — shows **all upcoming events** as cards on the `/events` page; past events section only renders when there are no upcoming events
-- `events/FormattedDate.astro` — renders event dates in New York time. `isMultiDay` compares dates using `toNYDateString` (NY timezone) to avoid UTC boundary bugs. All three branches (multi-day, same-day-with-end, single) append the timezone abbreviation (EDT/EST).
-- `events/Signup.astro` — renders the registration button on event pages. Accepts `url`, `data_luma_event_id`, and `slug` props. Automatically appends `utm_source=boston-wib&utm_medium=event-page&utm_campaign=<slug>` to the registration URL — **do not manually add UTM params to the `url` field in event frontmatter**. The slug is passed from `[...slug].astro` as `meeting.data.slug ?? meeting.id`.
+- `widgets/UpcomingEvents.astro` — homepage "Upcoming Events" section; embeds a compact Luma calendar (`cal-wG6qhc5JGh2jlXA`) plus a "See Upcoming Events" button to `/events`. No longer reads from the `event` content collection (see Local Norm 12).
+- `events/FormattedDate.astro` — renders event dates in New York time. `isMultiDay` compares dates using `toNYDateString` (NY timezone) to avoid UTC boundary bugs. All three branches (multi-day, same-day-with-end, single) append the timezone abbreviation (EDT/EST). Only consumed by the still-functional-but-currently-pathless `[...slug].astro` event detail route now.
+- `events/Signup.astro` — renders the registration button on event pages. Accepts `url`, `data_luma_event_id`, and `slug` props. Automatically appends `utm_source=houston-wib&utm_medium=event-page&utm_campaign=<slug>` to the registration URL — **do not manually add UTM params to the `url` field in event frontmatter**. The slug is passed from `[...slug].astro` as `meeting.data.slug ?? meeting.id`.
 
 **`common/Banner.astro`** — generic dismissable announcement banner, not hardcoded to one message. Props: `id` (unique per instance — required whenever more than one `<Banner>` renders on the same page, since dismissal state is stored in `localStorage` under `bannerDismissed:<id>`), `bgClass`, `textClass` (message text color — must be paired with `bgClass` for contrast; the default `text-accent dark:text-white` only works on the default violet `bgClass`), `showBlobs` (toggles the decorative blurred gradient blobs), `linkHref`/`linkText`/`linkClass`/`arrowClass` for an optional CTA (`arrowClass` must be updated too if `linkClass` uses different colors — it doesn't inherit link text color, to stay legible regardless of ancestor styling), and default-slot content for the message body. The dismiss script (`initBanner`) iterates every `[data-banner]` element on the page independently via `data-banner-id`, so multiple banners with different `id`s can coexist without colliding. `PageLayout.astro`'s sitewide `<Banner />` usage is currently commented out; `survey-results.astro` renders its own `<Banner id="survey-fact-banner">` directly in the page body using all defaults (violet/purple), so it only appears on that one page.
 
@@ -118,7 +116,7 @@ A Chart.js-based interactive dashboard showing aggregate survey results for bioi
 
 ### Navigation (`src/navigation.ts`)
 
-`headerData.links` drives the top nav. Each item is either a flat link `{ text, href }` or a dropdown `{ text, href, links: [...] }`. The current top-level items are: **Home, Who we are, Resources, Newsletter, Team, Events, Media, Contact, Donate**. The **Events** dropdown currently contains: Upcoming Events, Fall Fundraiser 2026, Past Events Archive, Recorded Events. To add a link (e.g. Past Events Archive), add an entry to the relevant `links` array using `getPermalink('/events/archive')`.
+`headerData.links` drives the top nav. Each item is either a flat link `{ text, href }` or a dropdown `{ text, href, links: [...] }`. The slimmed-down site variant keeps only **Home, Who we are, Team, Events, Contact** in the main nav; `Who we are` links directly to `/about`, and `Events` points directly to `/events` with no dropdown. Footer secondary links are empty in this variant.
 
 ### Layouts (`src/layouts/`)
 
@@ -185,7 +183,7 @@ No test suite (no Jest/Vitest/Playwright config). Quality is enforced via `astro
 9. **Dark mode** — Tailwind `dark:` variants throughout. For inline-styled HTML in Markdown (e.g. newsletter tables), use a scoped `<style>` block with `:global(.dark) element[style*="..."] { ... !important }`.
 10. **`BLOG_EXCLUDED_CATEGORIES`** — Podcast and Video posts are excluded from the main blog list and category filter but appear on their own category pages at `/blog/podcast` and `/blog/video`. On the homepage, the latest Podcast is shown in its own card (top row, right column) and Video posts appear in the "Recent Media" grid. The homepage fetches via `findLatestPosts({ count: 20 })` and splits by `category.slug`.
 11. **Search data attributes** — client-side search uses `data-search` on `<li>` elements; sort uses `data-date` (milliseconds); series filter uses `data-in-series` and `data-series-card`.
-12. **Archive `DEFAULT_START`** — `src/pages/events/archive/index.astro` has a hardcoded `DEFAULT_START = '2025-08-08'` used as the default "From" date. Update this when the desired default window changes. The date picker `min="2024-08-08"` is the first-ever event date and should stay fixed.
+12. **Events are Luma-driven, not markdown-driven** — `/events` (`src/pages/events/index.astro`) and the homepage's `UpcomingEvents.astro` embed the live Luma calendar (`https://luma.com/embed/calendar/cal-wG6qhc5JGh2jlXA/events`) directly via `<iframe>`, rather than reading from the `event` content collection. The past-events archive page (`src/pages/events/archive/`) and the `EventsTable.astro` component it depended on have been removed. The `event` collection schema, `add-event` command, and `src/pages/events/[...slug].astro` / `EventLayout.astro` route are still intact and functional — they just currently generate zero pages since `src/content/meetups/` is empty. If per-event detail pages are wanted again, add markdown files back under `src/content/meetups/` and that route will pick them up automatically.
 13. **Committee chair validation** — `scripts/check-committee-chairs.mjs` cross-checks that every chair in `src/content/committees/*.md` has a matching "Chair" title in `src/config/components/team.js`, and vice versa. Run with `npm run check:committees`. Committees with `hidden: true` are skipped. The script normalizes hyphens, spaces, and `&`/`and` for matching. Run this script after editing either file.
 14. **Team member title line breaks** — in `src/config/components/team.js`, use `&` as the separator between multiple roles for a single person. `Team.astro` splits on `&` and renders each part on its own line. Example: `'Treasurer & Finance Committee Chair & Events Committee Co-chair'`.
 15. **Newsletter issue validation** — `src/utils/newsletter.ts` throws a build error at load time if two newsletters share the same `issue` number. The `issue` field must be set manually in each newsletter's frontmatter.
@@ -243,5 +241,6 @@ Moved to the `edit-blog-post` skill (`.claude/skills/edit-blog-post/SKILL.md`) a
 ## Self-Correction
 
 - **Stale code map**: If you discover that a file path, export name, or directory described above no longer exists or has moved, update the relevant section of this file immediately before proceeding with the task.
+- **Houston-branded variants**: The visible site identity lives in `src/config/site/config.js`, `src/pages/index.astro`, `src/pages/about/index.astro`, `src/pages/contact.astro`, `src/pages/privacy.md`, `src/pages/terms.md`, and the shared header/footer chrome. Archival newsletters and older event/resource pages may still contain Boston-specific copy and should be treated as a separate content-migration pass unless the user explicitly wants that full sweep.
 - **User corrections**: If the user corrects how work should be done in this repo (workflow, tooling preferences, naming conventions, patterns to avoid), add the correction to the **Local norms** section above so future sessions inherit it.
 - **After editing this file**: Run `npm run fix` to apply Prettier formatting before proceeding.

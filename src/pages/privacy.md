@@ -5,7 +5,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: July 09, 2025
 
-Boston Women in Bioinformatics ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard the personal information you provide when you visit [our website](https://boston-wib.org/) or interact with us online.
+Houston Women in Bioinformatics ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard the personal information you provide when you visit [our website](https://houston-wib.org/) or interact with us online.
 
 By using our website, you agree to the terms of this Privacy Policy.
 
@@ -29,7 +29,7 @@ We may also use third-party services (such as [Google Forms](https://transparenc
 
 ## 2. Use of Personal Data
 
-The Boston Women in Bioinformatics may use Personal Data for the following purposes:
+Houston Women in Bioinformatics may use Personal Data for the following purposes:
 
 - Communicate with you about events, programs, and updates
 
@@ -55,11 +55,11 @@ We **do not sell or rent your personal information**. We share your information 
 
 ## 4. Retention of Personal Data
 
-The Boston Women in Bioinformatics will retain your personal data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your personal data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.
+Houston Women in Bioinformatics will retain your personal data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your personal data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.
 
 ## 5. Delete Your Personal Data
 
-You have the right to delete or request that we assist in correcting inaccuracies or deleting the personal data that we have collected about you by contacting us at [communications@boston-wib.org](mailto:communications@boston-wib.org).
+You have the right to delete or request that we assist in correcting inaccuracies or deleting the personal data that we have collected about you by contacting us at [womeninbioinformaticshtx@gmail.com](mailto:womeninbioinformaticshtx@gmail.com).
 
 You may also:
 
@@ -93,4 +93,4 @@ We may update this Privacy Policy periodically. We encourage you to review this 
 
 If you have any questions about this Privacy Policy, you can contact us:
 
-- By email: [communications@boston-wib.org](mailto:communications@boston-wib.org)
+- By email: [womeninbioinformaticshtx@gmail.com](mailto:womeninbioinformaticshtx@gmail.com)

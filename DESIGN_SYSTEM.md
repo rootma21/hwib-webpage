@@ -1,6 +1,6 @@
-# Boston Women in Bioinformatics - Design System
+# Houston Women+ in Bioinformatics - Design System
 
-This document defines the complete design system for the Boston Women in Bioinformatics website, including layout patterns, spacing, components, and usage guidelines.
+This document defines the complete design system for the Houston Women+ in Bioinformatics website, including layout patterns, spacing, components, and usage guidelines.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ All design tokens are defined in [`src/components/common/CustomStyles.astro`](sr
 
 ### Color Strategy
 
-Our color system balances **professional cool tones** (blue, purple) with a **warm accent** that complements the WIB logo's rainbow spectrum:
+Our color system balances **professional cool tones** (navy, medium blue) with a **warm accent** used sparingly for emphasis:
 
 - **Cool accents** (`primary`, `secondary`, `accent`): Use for standard content, navigation, and professional elements
 - **Warm accent** (`accent-warm`): Use sparingly for featured content, high-priority CTAs, and diversity themes
@@ -35,9 +35,9 @@ See [COLOR_PALETTE.md - Color Strategy](COLOR_PALETTE.md#color-strategy-warm-vs-
 
 ```css
 /* Brand Colors - Light Mode */
---aw-color-primary: rgb(1 97 239); /* Blue - main brand color */
---aw-color-secondary: rgb(1 84 207); /* Dark blue - hover states */
---aw-color-accent: rgb(109 40 217); /* Purple - highlights */
+--aw-color-primary: #0f2b4f; /* Dark navy - main brand color */
+--aw-color-secondary: #387bad; /* Medium blue - hover states */
+--aw-color-accent: #387bad; /* Medium blue (same as secondary) - highlights */
 --aw-color-accent-warm: #e36d1d; /* Orange - featured content (auto-switches to lime in dark mode) */
 
 /* Spacing */
@@ -285,7 +285,7 @@ Use responsive text sizing with Tailwind classes:
 
 ### Button Colors and Customization
 
-The Button component uses the **primary** color by default (`#0161EF` blue). For featured or high-priority CTAs, you can customize the background color:
+The Button component uses the **primary** color by default (`#0F2B4F` dark navy). For featured or high-priority CTAs, you can customize the background color:
 
 **Featured/Warm Accent Button**:
 
@@ -316,12 +316,12 @@ The Button component uses the **primary** color by default (`#0161EF` blue). For
 
 **Podcast/Audio Button (Newsletter Only)**:
 
-Used exclusively for podcast CTAs in newsletter Markdown content, where Tailwind classes are unavailable (the newsletter renders inside a `not-prose` context but inline styles are still required for links). Uses `--aw-color-accent` (`#6d28d9`, deep violet) to visually distinguish podcast links from the standard blue `btn-primary` registration/event buttons.
+Used exclusively for podcast CTAs in newsletter Markdown content, where Tailwind classes are unavailable (the newsletter renders inside a `not-prose` context but inline styles are still required for links). Uses `--aw-color-accent` (`#387bad`, medium blue) to visually distinguish podcast links from the darker navy `btn-primary` registration/event buttons.
 
 ```html
 <a
   href="https://..."
-  style="display:inline-block; padding:0.75rem 1.5rem; border-radius:9999px; background-color:#6d28d9; color:#ffffff; font-weight:600; text-decoration:none;"
+  style="display:inline-block; padding:0.75rem 1.5rem; border-radius:9999px; background-color:#387bad; color:#ffffff; font-weight:600; text-decoration:none;"
 >
   🎙️ Listen on our Site
 </a>
@@ -332,7 +332,7 @@ Used exclusively for podcast CTAs in newsletter Markdown content, where Tailwind
 - Podcast episode CTAs inside newsletter `.md` files
 - Anywhere a link button must visually signal "audio content" and can't use Tailwind classes
 
-**Color**: `#6d28d9` — same as `--aw-color-accent` / `accent` token. Do not use a different purple shade.
+**Color**: `#387bad` — same as `--aw-color-accent` / `accent` token. Do not use a different shade.
 
 ### Button Styles (Defined in tailwind.css)
 
@@ -593,7 +593,7 @@ import Button from '~/components/ui/Button.astro';
 </div>
 
 <!-- Standard event with cool accent -->
-<div class="border-l-4 border-accent bg-purple-50 dark:bg-slate-800 rounded-lg shadow-md p-6">
+<div class="border-l-4 border-accent bg-blue-50 dark:bg-slate-800 rounded-lg shadow-md p-6">
   <h3 class="text-xl font-bold text-accent">Monthly Networking Event</h3>
   <p class="text-muted mb-4">October 15th at Cambridge Innovation Center</p>
   <p class="mb-6">Our regular monthly gathering for networking and discussion...</p>
@@ -625,4 +625,4 @@ When making changes to the design system:
 ---
 
 **Last Updated**: 2025-10-26
-**Maintained By**: Boston Women in Bioinformatics Development Team
+**Maintained By**: Houston Women+ in Bioinformatics Development Team

@@ -1,6 +1,6 @@
-# Boston Women in Bioinformatics - Color Palette Guide
+# Houston Women+ in Bioinformatics - Color Palette Guide
 
-This document describes the complete color system for the Boston Women in Bioinformatics website. All colors are centrally managed through CSS custom properties (design tokens) and Tailwind utility classes.
+This document describes the complete color system for the Houston Women+ in Bioinformatics website. All colors are centrally managed through CSS custom properties (design tokens) and Tailwind utility classes.
 
 ## Table of Contents
 
@@ -18,14 +18,14 @@ This document describes the complete color system for the Boston Women in Bioinf
 
 ### Brand Colors
 
-| Color           | Light Mode | Dark Mode  | Hex/RGB                       | Use Case                                                                                                |
-| --------------- | ---------- | ---------- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Primary**     | Blue       | Blue       | `rgb(1 97 239)` / `#0161EF`   | Primary actions, links, accents                                                                         |
-| **Secondary**   | Dark Blue  | Dark Blue  | `rgb(1 84 207)` / `#0154CF`   | Secondary actions, hover states                                                                         |
-| **Accent**      | Purple     | Purple     | `rgb(109 40 217)` / `#6D28D9` | Highlights, special elements                                                                            |
-| **Accent Warm** | Orange     | Lime Green | `#e36d1d` / `#84cc16`         | Warm highlights, CTAs, featured content - automatically switches between orange (light) and lime (dark) |
+| Color           | Light Mode  | Dark Mode   | Hex/RGB                       | Use Case                                                                                                |
+| --------------- | ----------- | ----------- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Primary**     | Dark Navy   | Dark Navy   | `#0F2B4F`                     | Primary actions, links, accents                                                                         |
+| **Secondary**   | Medium Blue | Medium Blue | `#387BAD`                     | Secondary actions, hover states                                                                         |
+| **Accent**      | Medium Blue | Medium Blue | `#387BAD` (same as secondary) | Highlights, special elements                                                                            |
+| **Accent Warm** | Orange      | Lime Green  | `#e36d1d` / `#84cc16`         | Warm highlights, CTAs, featured content - automatically switches between orange (light) and lime (dark) |
 
-**These four brand colors are text/border/icon colors, not section background colors.** Across the codebase they're used as `text-*`/`border-*` (76 and 42 uses respectively) and as small solid-fill icon badges/avatars — never as a full-width `bg-*` fill on their own. For large surfaces (page sections, cards, callouts), use a **pastel tint** of the relevant hue instead — `bg-blue-50`/`bg-purple-50`/`bg-orange-50` in light mode, `dark:bg-slate-800` (or a matching `-900`/`-950` shade) in dark mode. This pastel-tint approach is used 98 times across the site and is the actual "block color" language — see [Homepage Section Backgrounds](#homepage-section-backgrounds) below for a concrete example.
+**These four brand colors are text/border/icon colors, not section background colors.** Across the codebase they're used as `text-*`/`border-*` (76 and 42 uses respectively) and as small solid-fill icon badges/avatars — never as a full-width `bg-*` fill on their own. For large surfaces (page sections, cards, callouts), use a **pastel tint** of the relevant hue instead — `bg-blue-50`/`bg-orange-50` in light mode, `dark:bg-slate-800` (or a matching `-900`/`-950` shade) in dark mode. This pastel-tint approach is used 98 times across the site and is the actual "block color" language — see [Homepage Section Backgrounds](#homepage-section-backgrounds) below for a concrete example.
 
 ### Sponsorship Tier Colors
 
@@ -64,15 +64,15 @@ All colors are defined in [`src/components/common/CustomStyles.astro`](src/compo
 
 ```css
 /* Light Mode (:root) */
---aw-color-primary: rgb(1 97 239);
---aw-color-secondary: rgb(1 84 207);
---aw-color-accent: rgb(109 40 217);
---aw-color-accent-warm: #e36d1d; /* Orange from logo rainbow */
+--aw-color-primary: #0f2b4f; /* Dark navy */
+--aw-color-secondary: #387bad; /* Medium blue */
+--aw-color-accent: #387bad; /* Medium blue (same as secondary) */
+--aw-color-accent-warm: #e36d1d; /* Warm orange, complements the navy/blue foundation */
 
 /* Dark Mode (.dark) */
---aw-color-primary: rgb(1 97 239);
---aw-color-secondary: rgb(1 84 207);
---aw-color-accent: rgb(109 40 217);
+--aw-color-primary: #0f2b4f; /* Dark navy (same as light mode) */
+--aw-color-secondary: #387bad; /* Medium blue (same as light mode) */
+--aw-color-accent: #387bad; /* Medium blue (same as secondary) */
 --aw-color-accent-warm: #84cc16; /* Lime green for dark mode - lime-500 */
 ```
 
@@ -135,11 +135,11 @@ All colors are defined in [`src/components/common/CustomStyles.astro`](src/compo
 ```css
 /* Light Mode */
 --aw-border-color: #ddd; /* Light Gray */
---aw-border-color-accent: #3498db; /* Blue */
+--aw-border-color-accent: #387bad; /* Medium blue, matches secondary/accent */
 
 /* Dark Mode */
 --aw-border-color: rgb(51 65 85); /* Slate 700 */
---aw-border-color-accent: rgb(59 130 246); /* Blue 500 */
+--aw-border-color-accent: #6ba4ce; /* Lighter tint of the medium blue for contrast on dark backgrounds */
 ```
 
 ---
@@ -156,7 +156,7 @@ All design tokens are exposed as Tailwind utility classes via [`tailwind.config.
 <!-- Text -->
 <p class="text-primary">Primary blue text</p>
 <p class="text-secondary">Secondary dark blue text</p>
-<p class="text-accent">Accent purple text</p>
+<p class="text-accent">Accent (medium blue) text</p>
 <p class="text-accent-warm">Warm orange text</p>
 
 <!-- Background -->
@@ -223,7 +223,7 @@ All design tokens are exposed as Tailwind utility classes via [`tailwind.config.
 <button class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-full"> Learn More </button>
 
 <!-- Accent Button (Cool tone - special) -->
-<button class="bg-accent hover:bg-purple-700 text-white px-6 py-3 rounded-full"> Special Action </button>
+<button class="bg-accent hover:bg-blue-900 text-white px-6 py-3 rounded-full"> Special Action </button>
 
 <!-- Warm Accent Button (Warm tone - featured CTA) -->
 <!-- Automatically orange in light mode, lime green in dark mode -->
@@ -285,10 +285,10 @@ All design tokens are exposed as Tailwind utility classes via [`tailwind.config.
 </div>
 
 <!-- Regular Event (use cool accent for standard styling) -->
-<div class="border-l-4 border-accent bg-purple-50 dark:bg-slate-800 p-4">
+<div class="border-l-4 border-accent bg-blue-50 dark:bg-slate-800 p-4">
   <h3 class="text-accent font-bold">Monthly Meetup</h3>
   <p>Join our regular monthly gathering</p>
-  <button class="bg-accent hover:bg-purple-700 text-white px-4 py-2 rounded-full"> Learn More </button>
+  <button class="bg-accent hover:bg-blue-900 text-white px-4 py-2 rounded-full"> Learn More </button>
 </div>
 ```
 
@@ -463,7 +463,7 @@ We standardize on **slate** colors for dark mode (not gray):
 
 ## Color Strategy: Warm vs Cool Accents
 
-Our color palette balances professional cool tones with warm accents inspired by the WIB logo's rainbow spectrum.
+Our color palette balances professional cool navy/blue tones with a warm accent for emphasis.
 
 ### When to Use Cool Accents (Primary, Secondary, Accent)
 
@@ -501,9 +501,9 @@ Our color palette balances professional cool tones with warm accents inspired by
 
 The warm accent color system was designed to:
 
-1. **Light Mode** (`#e36d1d` orange): Complement the logo's warm rainbow tones (yellow, orange, coral, pink)
+1. **Light Mode** (`#e36d1d` orange): A warm, complementary contrast to the navy/blue brand foundation
 2. **Dark Mode** (`#84cc16` lime green): Provide high contrast and visibility on dark backgrounds
-3. Add visual warmth without overwhelming the professional blue/purple foundation
+3. Add visual warmth without overwhelming the professional navy/blue foundation
 4. Create hierarchy: warm = featured/urgent, cool = standard/professional
 5. Align with themes of diversity and community
 
@@ -583,4 +583,4 @@ npm run dev
 ---
 
 **Last Updated**: 2025-10-26
-**Maintained By**: Boston Women in Bioinformatics Development Team
+**Maintained By**: Houston Women+ in Bioinformatics Development Team

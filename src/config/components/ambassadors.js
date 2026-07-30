@@ -2,7 +2,7 @@
 
 const ambassadors = {
   // Whether the ambassadors page is enabled or not
-  enabled: true,
+  enabled: false, // Hidden for now per HWIB request — flip to true to show this section again
 
   // The title of the ambassadors section
   title: 'Our Ambassadors',

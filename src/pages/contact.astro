@@ -1,17 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import { SITE } from '~/config/site/config.js';
-import {
-  SLACK_INVITE_URL,
-  LINKEDIN_URL,
-  INSTAGRAM_URL,
-  BLUESKY_URL,
-  YOUTUBE_URL,
-  GITHUB_URL,
-  TWITTER_URL,
-} from '~/config/social';
+import { CONTACT_EMAIL } from '~/config/social';
 import HeroText from '~/components/widgets/HeroText.astro';
-// import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
@@ -19,6 +10,9 @@ const metadata = {
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
+
+const GOOGLE_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSdwQUZAchxcgsM5qUOkagfmQ7usFebBoAMeA-gheSiRExibhA/viewform?usp=preview';
 ---
 
 <Layout metadata={metadata}>
@@ -28,82 +22,19 @@ const metadata = {
 
   <Features2
     title="Get in Touch"
-    columns={3}
+    columns={2}
     items={[
       {
-        title: 'Questions and comments',
-        description: 'communications@boston-wib.org',
+        title: 'Email',
+        description: CONTACT_EMAIL,
         icon: 'tabler:mail',
-        callToAction: { href: 'mailto:communications@boston-wib.org' },
+        callToAction: { href: `mailto:${CONTACT_EMAIL}` },
       },
       {
-        title: 'Sponsorship Info',
-        description: 'sponsorship@boston-wib.org',
-        icon: 'tabler:briefcase',
-        callToAction: { href: 'mailto:sponsorship@boston-wib.org' },
-      },
-      {
-        title: 'Partner with us on an event',
-        description: 'events@boston-wib.org',
-        icon: 'tabler:calendar-event',
-        callToAction: { href: 'mailto:events@boston-wib.org' },
-      },
-      {
-        title: 'Promote Your Event',
-        description: 'Have an event relevant to our community? Fill out our form!',
-        icon: 'tabler:speakerphone',
-        callToAction: { target: '_blank', href: 'https://forms.gle/K2ofV58M1JPoYRX69' },
-        classes: { panel: 'sm:col-span-3' },
-      },
-    ]}
-  />
-
-  <Features2
-    title="Follow Us"
-    columns={3}
-    classes={{
-      items: {
-        panel:
-          'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 dark:text-gray-100 p-4',
-        icon: 'w-8 h-8 mb-2 text-primary',
-        title: 'text-base font-semibold text-gray-900 dark:text-slate-100',
-      },
-    }}
-    items={[
-      {
-        title: 'Slack',
-        icon: 'tabler:brand-slack',
-        callToAction: { target: '_blank', href: SLACK_INVITE_URL },
-      },
-      {
-        title: 'LinkedIn',
-        icon: 'tabler:brand-linkedin',
-        callToAction: { target: '_blank', href: LINKEDIN_URL },
-      },
-      {
-        title: 'Instagram',
-        icon: 'tabler:brand-instagram',
-        callToAction: { target: '_blank', href: INSTAGRAM_URL },
-      },
-      {
-        title: 'Bluesky',
-        icon: 'tabler:brand-bluesky',
-        callToAction: { target: '_blank', href: BLUESKY_URL },
-      },
-      {
-        title: 'GitHub',
-        icon: 'tabler:brand-github',
-        callToAction: { target: '_blank', href: GITHUB_URL },
-      },
-      {
-        title: 'YouTube',
-        icon: 'tabler:brand-youtube',
-        callToAction: { target: '_blank', href: YOUTUBE_URL },
-      },
-      {
-        title: 'X (Twitter)',
-        icon: 'tabler:brand-x',
-        callToAction: { target: '_blank', href: TWITTER_URL },
+        title: 'Contact Form',
+        description: 'Reach out to us using our form',
+        icon: 'tabler:forms',
+        callToAction: { target: '_blank', href: GOOGLE_FORM_URL },
       },
     ]}
   />

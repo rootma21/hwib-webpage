@@ -2,9 +2,8 @@
 import { SITE } from '~/config/site/config.js';
 import { LUMA_URL } from '~/config/social';
 import Layout from '~/layouts/PageLayout.astro';
-import EventsTable from '~/components/events/EventsTable.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
+
 const metadata = {
   title: SITE.title,
   description: SITE.description,
@@ -17,19 +16,24 @@ const metadata = {
     <Fragment slot="title"> Events </Fragment>
 
     <Fragment slot="subtitle">
-      To subscribe to future events, check out
-      <a
-        href={LUMA_URL}
-        class="inline-flex items-center ml-2 px-4 py-1 bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 hover:opacity-90 transition focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-base text-white text-center me-2 mb-2 dark:border-blue-500 dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-      >
-        <span>Luma</span>
-        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
-      </a>
+      Browse and register for upcoming events below, or
+      <a href={LUMA_URL} target="_blank" rel="noopener" class="text-primary dark:text-blue-300 font-semibold underline"
+        >view the full calendar on Luma</a
+      >.
     </Fragment>
+
     <Fragment slot="content">
-      <EventsTable />
+      <div
+        class="w-full max-w-4xl mx-auto rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700 shadow-lg"
+      >
+        <iframe
+          src="https://luma.com/embed/calendar/cal-wG6qhc5JGh2jlXA/events"
+          class="w-full h-[450px] sm:h-[600px]"
+          style="border: none;"
+          allowfullscreen
+          aria-label="HWIB events calendar"
+          loading="lazy"></iframe>
+      </div>
     </Fragment>
   </Hero>
 </Layout>

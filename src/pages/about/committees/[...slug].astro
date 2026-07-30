@@ -16,9 +16,11 @@ export async function getStaticPaths() {
 const { committee } = Astro.props;
 const { Content } = await render(committee);
 
+type TeamMember = { name: string; title?: string; avatar?: string; nameLink?: string };
+
 // Helper function to find team member by name from exec or team
 function findTeamMember(name: string) {
-  const allMembers = [...exec.members, ...teamConfig.members];
+  const allMembers: TeamMember[] = [...exec.members, ...teamConfig.members];
   return allMembers.find((member) => member.name === name);
 }
 

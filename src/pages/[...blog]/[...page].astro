@@ -7,6 +7,7 @@ import Headline from '~/components/ui/Headline.astro';
 
 import { blogListRobots, getStaticPathsBlogListAll } from '~/utils/blog';
 import { getPermalink } from '~/utils/permalinks';
+import { CONTACT_EMAIL } from '~/config/social';
 import type { Post } from '~/types';
 import NewBadge from '~/components/ui/NewBadge.astro';
 
@@ -287,9 +288,8 @@ const metadata = {
     </div>
 
     <p class="text-sm text-muted dark:text-slate-400 text-center max-w-4xl mx-auto mt-12 mb-0">
-      Have content you want to submit? Contact <a
-        href="mailto:communications@boston-wib.org"
-        class="text-primary hover:underline">communications@boston-wib.org</a
+      Have content you want to submit? Contact <a href={`mailto:${CONTACT_EMAIL}`} class="text-primary hover:underline"
+        >{CONTACT_EMAIL}</a
       > and fill out our <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSdmsqWJ7oHRC8kK7NIMgyGuGegNsIY1yVQpMeV8VTHXvsPstA/viewform?usp=header"
         target="_blank"

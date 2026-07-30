@@ -1,6 +1,6 @@
-# Boston-Area Women in Bioinformatics Website
+# Houston Women+ in Bioinformatics Website
 
-<img src="src/assets/favicons/WIB_Logo.png" alt="Logo for Boston-Area Women in Bioinformatics" width="100">
+<img src="src/assets/favicons/HWIB_Logo.png" alt="Logo for Houston Women+ in Bioinformatics" width="100">
 
 ## Quick Links
 
@@ -661,7 +661,7 @@ All header navigation is defined in `src/navigation.ts` in the `headerData.links
   href: getPermalink('/events'),   // where the top-level label links to
   links: [
     { text: 'Upcoming Events', href: getPermalink('/events') },
-    { text: 'Archive', href: getPermalink('/events/archive') },
+    { text: 'Some Other Page', href: getPermalink('/some-other-page') },
   ],
 },
 ```
@@ -735,24 +735,9 @@ git add public/photos/{year}/
 git push -u origin update-fundraiser-{year}
 ```
 
-### Update the events archive default date
+### Events are Luma-driven
 
-The archive page (`src/pages/events/archive/index.astro`) has a hardcoded `DEFAULT_START` date used as the default "From" date in the date range filter. Update it annually so the archive doesn't open showing several years of past events by default.
-
-Find this line near the top of the client-side script block and update the date:
-
-```js
-const DEFAULT_START = '2025-08-08';
-```
-
-Use the date roughly one year before today in `YYYY-MM-DD` format. The `min` attribute on the date picker (`min="2024-08-08"`) is the date of the first-ever BWIB event and should never be changed.
-
-```
-npx prettier --write src/pages/events/archive/index.astro
-git add src/pages/events/archive/index.astro
-git commit -m "Update archive default start date"
-git push
-```
+`/events` (`src/pages/events/index.astro`) and the homepage's "Upcoming Events" section (`src/components/widgets/UpcomingEvents.astro`) embed the live Luma calendar directly via `<iframe>` — there's no markdown file to edit for a new event to show up; it's managed entirely from the Luma dashboard. The `event` content collection, the `add-event` command, and the per-event detail page route (`src/pages/events/[...slug].astro`) still exist and work, but nothing currently links to them since `src/content/meetups/` is empty.
 
 ## Image Organization
 

@@ -1,12 +1,12 @@
 ---
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import { SLACK_INVITE_URL, LINKEDIN_URL, BLUESKY_URL, YOUTUBE_URL, GIVEBUTTER_URL } from '~/config/social';
+import { DISCORD_URL, LINKEDIN_URL, BLUESKY_URL, YOUTUBE_URL, GIVEBUTTER_URL, CONTACT_EMAIL } from '~/config/social';
 
 const metadata = {
-  title: 'FAQ | Boston Women in Bioinformatics',
+  title: 'FAQ | Houston Women in Bioinformatics',
   description:
-    'Frequently asked questions about Boston Women in Bioinformatics — membership, events, committees, sponsorship, and more.',
+    'Frequently asked questions about Houston Women in Bioinformatics — membership, events, committees, sponsorship, and more.',
 };
 
 const link = (href: string, text: string) => `<a href="${href}" class="text-primary hover:underline">${text}</a>`;
@@ -17,15 +17,15 @@ const faqs = [
     items: [
       {
         question: 'How do I join?',
-        answer: `There is no formal membership process. You can start by signing up for our ${link('/newsletter', 'newsletter')}, joining our ${link(SLACK_INVITE_URL, 'Slack workspace')}, and following us on social media. Attending an event is the best way to get connected.`,
+        answer: `There is no formal membership process. You can start by signing up for our ${link('/newsletter', 'newsletter')}, joining our ${link(DISCORD_URL, 'Discord community')}, and following us on social media. Attending an event is the best way to get connected.`,
       },
       {
-        question: "Can I join if I don't live in Boston?",
-        answer: `Yes! While our in-person events are held in the Boston area, our ${link('/newsletter', 'newsletter')}, Slack community, and some virtual programming are open to anyone regardless of location.`,
+        question: "Can I join if I don't live in Houston?",
+        answer: `Yes! While our in-person events are held in the Houston area, our ${link('/newsletter', 'newsletter')}, Discord community, and some virtual programming are open to anyone regardless of location.`,
       },
       {
-        question: 'Is BWIB only for women?',
-        answer: `BWIB is a women++ organization. Our space is designed for and centered on women and non-binary people. Allies are welcome at events when we explicitly invite them, but we ask that allies come in a spirit of listening and support, remembering that the space was not made for them. Some events are women++ only. Check the event page for details.<br/><br/><picture><source srcset="/photos/allyGuidelines.svg" type="image/svg+xml"/><img src="/photos/allyGuidelines.png" alt="How to be a good ally" class="mt-2 max-w-full rounded-lg"/></picture>`,
+        question: 'Is HWIB only for women?',
+        answer: `Houston Women in Bioinformatics is a women++ organization. Our space is designed for and centered on women and non-binary people. Allies are welcome at events when we explicitly invite them, but we ask that allies come in a spirit of listening and support, remembering that the space was not made for them. Some events are women++ only. Check the event page for details.<br/><br/><picture><source srcset="/photos/allyGuidelines.svg" type="image/svg+xml"/><img src="/photos/allyGuidelines.png" alt="How to be a good ally" class="mt-2 max-w-full rounded-lg"/></picture>`,
       },
       {
         question: "I'm not in bioinformatics specifically, can I still join?",
@@ -47,11 +47,11 @@ const faqs = [
       },
       {
         question: 'How do I find out about upcoming events?',
-        answer: `Subscribe to our ${link('/newsletter', 'newsletter')}, join our ${link(SLACK_INVITE_URL, 'Slack workspace')}, follow us on ${link(LINKEDIN_URL, 'LinkedIn')} and ${link(BLUESKY_URL, 'Bluesky')}, and check our ${link('/events', 'events page')}. We announce all upcoming events across these channels.`,
+        answer: `Subscribe to our ${link('/newsletter', 'newsletter')}, join our ${link(DISCORD_URL, 'Discord community')}, follow us on ${link(LINKEDIN_URL, 'LinkedIn')} and ${link(BLUESKY_URL, 'Bluesky')}, and check our ${link('/events', 'events page')}. We announce all upcoming events across these channels.`,
       },
       {
         question: 'How do I suggest a new event or program idea?',
-        answer: `We love community-driven ideas! Reach out to us through our ${link(SLACK_INVITE_URL, 'Slack workspace')} or contact the Events Committee via ${link('mailto:events@boston-wib.org', 'events@boston-wib.org')}.`,
+        answer: `We love community-driven ideas! Reach out to us through our ${link(DISCORD_URL, 'Discord community')} or contact us via ${link(`mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL)}.`,
       },
     ],
   },
@@ -60,7 +60,7 @@ const faqs = [
     items: [
       {
         question: 'How can I join a committee?',
-        answer: `We welcome volunteers across all of our committees, including Events, Communications, Career Sponsorship, Podcast, and more. Visit our ${link('/about/committees', 'Committees page')} to learn about each one, then reach out to us at ${link('mailto:communications@boston-wib.org', 'communications@boston-wib.org')} to express your interest.`,
+        answer: `We welcome volunteers across all of our committees, including Events, Communications, Career Sponsorship, Podcast, and more. Visit our ${link('/about/committees', 'Committees page')} to learn about each one, then reach out to us at ${link(`mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL)} to express your interest.`,
       },
       {
         question: 'How do I start my own chapter?',
@@ -72,26 +72,26 @@ const faqs = [
     category: 'Partnerships & Funding',
     items: [
       {
-        question: 'How do I sponsor BWIB?',
-        answer: `We partner with companies and organizations that share our commitment to equity in science and technology. Sponsorships help us keep events free and accessible. Reach out to us at ${link('mailto:sponsorship@boston-wib.org', 'sponsorship@boston-wib.org')} to learn about current sponsorship opportunities.`,
+        question: 'How do I sponsor HWIB?',
+        answer: `We partner with companies and organizations that share our commitment to equity in science and technology. Sponsorships help us keep events free and accessible. Reach out to us at ${link(`mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL)} to learn about current sponsorship opportunities.`,
       },
       {
         question: 'How can I promote an event I am organizing for a different group?',
-        answer: `We regularly share partner events with our community. Fill out our ${link('https://docs.google.com/forms/d/e/1FAIpQLScfcIfq8U-dxU5thavC41BDugozCk7hy4qIyR3w0d2L-INi5g/viewform', 'event promotion form')} and email ${link('mailto:communications@boston-wib.org', 'communications@boston-wib.org')} to let us know you once its complete. Our team will review it for inclusion in our newsletter or social channels.`,
+        answer: `We regularly share partner events with our community. Fill out our ${link('https://docs.google.com/forms/d/e/1FAIpQLScfcIfq8U-dxU5thavC41BDugozCk7hy4qIyR3w0d2L-INi5g/viewform', 'event promotion form')} and email ${link(`mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL)} to let us know once it is complete. Our team will review it for inclusion in our newsletter or social channels.`,
       },
       {
-        question: 'How is BWIB funded?',
+        question: 'How is HWIB funded?',
         answer:
-          'BWIB is funded through a combination of event sponsorships, corporate partnerships, and individual donations. We are a 501(c)(3) nonprofit organization and rely on community support to sustain our programming.',
+          'Houston Women in Bioinformatics is funded through a combination of event sponsorships, corporate partnerships, and individual donations. We are a 501(c)(3) nonprofit organization and rely on community support to sustain our programming.',
       },
       {
-        question: 'Is BWIB affiliated with any university or company?',
+        question: 'Is HWIB affiliated with any university or company?',
         answer:
-          'No. BWIB is an independent nonprofit organization. We partner with universities, companies, and other organizations for specific events and programs, but we are not affiliated with or sponsored by any single institution.',
+          'No. Houston Women in Bioinformatics is an independent nonprofit organization. We partner with universities, companies, and other organizations for specific events and programs, but we are not affiliated with or sponsored by any single institution.',
       },
       {
         question: 'How do I donate?',
-        answer: `You can make a tax-deductible donation at ${link(GIVEBUTTER_URL, 'givebutter.com/BWIBdonate')}. Every contribution helps us keep our events free and our community growing.`,
+        answer: `You can make a tax-deductible donation at ${link(GIVEBUTTER_URL, 'givebutter.com/HWIBdonate')}. Every contribution helps us keep our events free and our community growing.`,
       },
     ],
   },
@@ -101,7 +101,7 @@ const faqs = [
 <Layout metadata={metadata}>
   <Hero
     title="Frequently Asked Questions"
-    subtitle="Everything you want to know about BWIB — membership, events, getting involved, and more."
+    subtitle="Everything you want to know about Houston Women in Bioinformatics — membership, events, getting involved, and more."
   />
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
@@ -144,8 +144,8 @@ const faqs = [
     <div class="text-center pt-4 pb-8">
       <p class="text-gray-600 dark:text-slate-300">
         Still have questions? Reach out to us at <a
-          href="mailto:communications@boston-wib.org"
-          class="text-primary hover:underline">communications@boston-wib.org</a
+          href={`mailto:${CONTACT_EMAIL}`}
+          class="text-primary hover:underline">{CONTACT_EMAIL}</a
         >.
       </p>
     </div>

@@ -4,7 +4,6 @@ import { SITE } from '~/config/site/config.js';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import { Image } from 'astro:assets';
 
 const metadata = {
   title: SITE.title,
@@ -18,23 +17,10 @@ const metadata = {
 
   <Hero title="About Us" subtitle="Support. Learn. Share. Network.">
     <Fragment slot="content">
-      We are women++ in the fields of bioinformatics, computational biology, biostatistics, data science and
-      informatics. As a community, we aim to empower and encourage all women++ bioinformaticians through regular
-      meetings, networking events and workshops. We seek to give a platform to women++ professionals, including those
-      members of other underrepresented groups in science, such as BIPOC, the LGBTQIA+ community, and people with
-      disabilities.
-    </Fragment>
-    <Fragment slot="image">
-      <center>
-        <Image
-          src={'/photos/2025/WIB_10Year_group_photo1.jpg'}
-          width="750"
-          height="537"
-          decoding="async"
-          loading="lazy"
-          alt="BWIB lunch meetup."
-        />
-      </center>
+      We are women in the fields of bioinformatics, computational biology, biostatistics, data science, and informatics.
+      As a community, we aim to empower and encourage women bioinformaticians through regular meetings, networking
+      events, and workshops. We seek to give a platform to professionals from underrepresented groups in science,
+      including BIPOC, the LGBTQIA+ community, and people with disabilities.
     </Fragment>
   </Hero>
 
@@ -44,7 +30,7 @@ const metadata = {
 
   <Features2
     title="Mission"
-    subtitle="The Women in Bioinformatics Group’s mission is to advance and support women++ in the fields of bioinformatics, computational biology, biostatistics, data science and informatics."
+    subtitle="The mission of Houston Women in Bioinformatics is to advance and support women in the fields of bioinformatics, computational biology, biostatistics, data science, and informatics."
   />
 
   <!-- Stats Widget ****************** 
@@ -141,7 +127,7 @@ const metadata = {
 
   <Steps2
     title="Our vision"
-    subtitle="In order to accomplish our mission, we are focusing on three pillars of support: professional development, scientific communication, and community."
+    subtitle="To accomplish our mission, we focus on three pillars of support: professional development, scientific communication, and community."
     items={[
       {
         title: 'Professional Development',
@@ -165,12 +151,13 @@ const metadata = {
 
   <Features2 title="Code of Conduct">
     <Fragment slot="subtitle">
-      This meetup group is dedicated to providing a harassment-free experience for everyone, regardless of gender,
-      gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race,
-      ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment in any form. Anyone
-      violating these rules may be sanctioned or banned from attending at the discretion of the conference organizers.
-      Please contact the organizers through here if you feel someone has broken the code of conduct. Original source and
-      credit: <a href="http://2012.jsconf.us/#/about">http://2012.jsconf.us/#/about</a>
+      This community is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender
+      identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity,
+      religion (or lack thereof), or technology choices. We do not tolerate harassment in any form. Anyone violating
+      these rules may be sanctioned or banned from attending at the discretion of the organizers. Please contact the
+      organizers through here if you feel someone has broken the code of conduct. Original source and credit: <a
+        href="http://2012.jsconf.us/#/about">http://2012.jsconf.us/#/about</a
+      >
     </Fragment>
   </Features2>
 

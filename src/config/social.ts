@@ -1,18 +1,21 @@
-export const SLACK_INVITE_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfcgDtmTKBtN1YkLRYGMdJ5Rq_IekJ9DyXlGyh5N1ZyVUoddQ/viewform';
+// TODO: replace every '#' placeholder below with HWIB's real account URL once created/confirmed.
 
-export const LINKEDIN_URL = 'https://www.linkedin.com/company/boston-women-in-bioinformatics';
+export const DISCORD_URL = 'https://discord.gg/FGBrX32bq';
 
-export const INSTAGRAM_URL = 'https://www.instagram.com/boston_wib';
+export const LINKEDIN_URL = 'https://www.linkedin.com/groups/18352018/';
 
-export const BLUESKY_URL = 'https://bsky.app/profile/boston-wib.bsky.social';
+export const INSTAGRAM_URL = 'https://www.instagram.com/wibhtx/';
 
-export const YOUTUBE_URL = 'https://m.youtube.com/channel/UCzgmQ4uoTNq_MayiwAQ448Q';
+export const BLUESKY_URL = '#'; // TODO: HWIB Bluesky account
 
-export const GITHUB_URL = 'https://github.com/Boston-area-Women-in-Bioinformatics';
+export const YOUTUBE_URL = '#'; // TODO: HWIB YouTube channel
 
-export const TWITTER_URL = 'https://x.com/BWIBioinfo';
+export const GITHUB_URL = '#'; // TODO: HWIB GitHub organization
 
-export const LUMA_URL = 'https://luma.com/bwib';
+export const TWITTER_URL = '#'; // TODO: HWIB X/Twitter account
 
-export const GIVEBUTTER_URL = 'https://givebutter.com/BWIBdonate';
+export const LUMA_URL = 'https://luma.com/calendar/cal-wG6qhc5JGh2jlXA';
+
+export const GIVEBUTTER_URL = '#'; // TODO: HWIB Givebutter donation page
+
+export const CONTACT_EMAIL = 'womeninbioinformaticshtx@gmail.com';

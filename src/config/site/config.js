@@ -1,28 +1,28 @@
 // General configuration for the website
 
-import defaultImage from '../../assets/images/WIB_Logo.jpg';
+import defaultImage from '../../assets/images/HWIB_Logo.png';
 import blog from './blog';
 
 const CONFIG = {
   // The name of the website
-  name: 'Boston Women in Bioinformatics',
+  name: 'Houston Women in Bioinformatics',
   // The origin of the website (without trailing slash)
-  origin: 'https://boston-wib.org',
+  origin: 'https://houston-wib.org',
   // The base pathname of the website
   basePathname: '/',
   // If the website uses trailing slashes in the URLs
   trailingSlash: false,
 
   // The website title which is displayed in the browser tab
-  title: 'Boston Women in Bioinformatics',
+  title: 'Houston Women in Bioinformatics',
 
   // Website description
-  description: 'The online presence of Women in Bioinformatics in the Boston Area.',
+  description: 'The online presence of Houston Women in Bioinformatics.',
 
   // The website's preview image that is displayed when sharing the website on social media
   defaultImage: defaultImage,
   // The default alt attribute for the preview image
-  defaultImageAlt: 'WIB Boston Area Logo',
+  defaultImageAlt: 'Houston Women in Bioinformatics Logo',
   // The default width and height of the preview image
   defaultImageWidth: 1200,
   defaultImageHeight: 628,
@@ -69,22 +69,22 @@ const CONFIG = {
   // Global metadata config
   metadata: {
     title: {
-      default: 'Boston Women in Bioinformatics',
-      template: '%s — Boston Women in Bioinformatics',
+      default: 'Houston Women in Bioinformatics',
+      template: '%s — Houston Women in Bioinformatics',
     },
-    description: 'The online presence of Women in Bioinformatics in the Boston Area.',
+    description: 'The online presence of Houston Women in Bioinformatics.',
     robots: {
       index: true,
       follow: true,
     },
     openGraph: {
       type: 'website',
-      siteName: 'boston-wib.org',
+      siteName: 'Houston Women in Bioinformatics',
       images: [
         {
-          url: '~/assets/images/WIB_Logo.jpg',
-          width: 1200,
-          height: 628,
+          url: '~/assets/images/HWIB_Logo.png',
+          width: 1000,
+          height: 1000,
         },
       ],
     },

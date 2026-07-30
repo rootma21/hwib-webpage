@@ -1,14 +1,7 @@
-import { getPermalink, getBlogPermalink, getNewsletterPermalink } from './utils/permalinks';
-import {
-  SLACK_INVITE_URL,
-  LINKEDIN_URL,
-  INSTAGRAM_URL,
-  BLUESKY_URL,
-  YOUTUBE_URL,
-  GITHUB_URL,
-  TWITTER_URL,
-  GIVEBUTTER_URL,
-} from './config/social';
+import { getPermalink } from './utils/permalinks';
+import { DISCORD_URL, LINKEDIN_URL, INSTAGRAM_URL } from './config/social';
+// BLUESKY_URL, YOUTUBE_URL, GITHUB_URL, TWITTER_URL: re-import from './config/social'
+// when uncommenting the corresponding entries in footerData.socialLinks below.
 export const headerData = {
   links: [
     {
@@ -17,49 +10,7 @@ export const headerData = {
     },
     {
       text: 'Who we are',
-      links: [
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: '2025 Annual Report',
-          href: getPermalink('/about/annual-report-2025'),
-        },
-        {
-          text: 'Committees',
-          href: getPermalink('/about/committees'),
-        },
-        {
-          text: 'FAQ',
-          href: getPermalink('/about/faq'),
-        },
-      ],
-    },
-    {
-      text: 'Resources',
-      links: [
-        {
-          text: 'Career Program',
-          href: getPermalink('/resources/career-mentorship'),
-        },
-        {
-          text: 'Upskilling Resources',
-          href: getPermalink('/resources/upskilling'),
-        },
-        {
-          text: 'Partner Communities',
-          href: getPermalink('/resources/partner-communities'),
-        },
-        {
-          text: 'Survey Results',
-          href: getPermalink('/resources/survey-results'),
-        },
-      ],
-    },
-    {
-      text: 'Newsletter',
-      href: getNewsletterPermalink(),
+      href: getPermalink('/about'),
     },
     {
       text: 'Team',
@@ -68,54 +19,10 @@ export const headerData = {
     {
       text: 'Events',
       href: getPermalink('/events'),
-      links: [
-        {
-          text: 'Upcoming Events',
-          href: getPermalink('/events'),
-        },
-        {
-          text: 'Fall Fundraiser 2026',
-          href: getPermalink('/events/fall-fundraiser-2026'),
-        },
-        //{
-        //  text: 'Cambridge Science Carnival 2025',
-        //  href: getPermalink('/events/ama'),
-        //},
-        {
-          text: 'Event Recordings',
-          href: getPermalink('/events/recorded-events'),
-        },
-        {
-          text: 'Archive',
-          href: getPermalink('/events/archive'),
-        },
-      ],
-    },
-    {
-      text: 'Media',
-      href: getBlogPermalink(),
-      links: [
-        {
-          text: 'Blogs',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Podcasts',
-          href: getPermalink('podcast', 'category'),
-        },
-        {
-          text: 'Videos',
-          href: getPermalink('video', 'category'),
-        },
-      ],
     },
     {
       text: 'Contact',
       href: getPermalink('/contact'),
-    },
-    {
-      text: 'Donate',
-      href: GIVEBUTTER_URL,
     },
     //{
     //  text: 'Community',
@@ -256,16 +163,10 @@ export const footerData = {
     //  ],
     //},
   ],
-  secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
+  secondaryLinks: [],
+  // Only LinkedIn and Instagram are confirmed HWIB accounts right now — the rest are commented out
+  // rather than shown as dead '#' links. Uncomment and re-add the import in social.ts as each is confirmed.
   socialLinks: [
-    {
-      ariaLabel: 'Slack',
-      icon: 'tabler:brand-slack',
-      href: SLACK_INVITE_URL,
-    },
     {
       ariaLabel: 'LinkedIn',
       icon: 'tabler:brand-linkedin',
@@ -277,31 +178,30 @@ export const footerData = {
       href: INSTAGRAM_URL,
     },
     {
-      ariaLabel: 'Bluesky',
-      icon: 'tabler:brand-bluesky',
-      href: BLUESKY_URL,
+      ariaLabel: 'Discord',
+      icon: 'tabler:brand-discord',
+      href: DISCORD_URL,
     },
-
-    //{
-    //  ariaLabel: 'Lu.ma',
-    //  icon: 'LumaIcon', // This icon is wonky and needs to be fixed
-    //  href: 'https://luma.com/bwib',
-    //},
-    {
-      ariaLabel: 'YouTube',
-      icon: 'tabler:brand-youtube',
-      href: YOUTUBE_URL,
-    },
-    {
-      ariaLabel: 'Github',
-      icon: 'tabler:brand-github',
-      href: GITHUB_URL,
-    },
-    {
-      ariaLabel: 'X (formerly Twitter)',
-      icon: 'tabler:brand-x',
-      href: TWITTER_URL,
-    },
+    // {
+    //   ariaLabel: 'Bluesky',
+    //   icon: 'tabler:brand-bluesky',
+    //   href: BLUESKY_URL,
+    // },
+    // {
+    //   ariaLabel: 'YouTube',
+    //   icon: 'tabler:brand-youtube',
+    //   href: YOUTUBE_URL,
+    // },
+    // {
+    //   ariaLabel: 'Github',
+    //   icon: 'tabler:brand-github',
+    //   href: GITHUB_URL,
+    // },
+    // {
+    //   ariaLabel: 'X (formerly Twitter)',
+    //   icon: 'tabler:brand-x',
+    //   href: TWITTER_URL,
+    // },
   ],
-  footNote: `Boston Women in Bioinformatics is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law. Logos were designed by Siobhan Keegan and <a href="https://www.monikamistry.com/creative-design/">Monika Mistry</a>.`,
+  footNote: `Houston Women in Bioinformatics is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law. Logos were designed by Siobhan Keegan and <a href="https://www.monikamistry.com/creative-design/">Monika Mistry</a>.`,
 };

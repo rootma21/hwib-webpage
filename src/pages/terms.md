@@ -5,7 +5,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: July 09, 2025
 
-Welcome to the website of Boston Women in Bioinformatics (“we,” “us,” or “our”), a nonprofit organization based in Boston, Massachusetts. By accessing or using our website, you agree to comply with and be bound by the following Terms and Conditions. Please read them carefully.
+Welcome to the website of Houston Women in Bioinformatics (“we,” “us,” or “our”), a nonprofit organization based in Houston, Texas. By accessing or using our website, you agree to comply with and be bound by the following Terms and Conditions. Please read them carefully.
 
 These Terms and Conditions govern your access to and use of our website, including any content, functionality, and services offered on or through the website. If you do not agree with these Terms and Conditions, you must not access or use our website.
 
@@ -21,21 +21,21 @@ You may not use our website to:
 
 ## 2. Intellectual Property
 
-All content on this site, including text, images, logos, graphics, and documents, is the property of Boston Women in Bioinformatics unless otherwise noted. You may use content for personal or educational purposes, but reproduction or redistribution for commercial purposes is prohibited without our written consent.
+All content on this site, including text, images, logos, graphics, and documents, is the property of Houston Women in Bioinformatics unless otherwise noted. You may use content for personal or educational purposes, but reproduction or redistribution for commercial purposes is prohibited without our written consent.
 
 ## 3. Donations and Transactions
 
-Boston Women in Bioinformatics is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code in the Commonwealth of Massachusetts. Donations are tax-deductible to the extent permitted by law. We may offer online donations via secure third-party payment processors. By donating, you agree to provide accurate payment information. All donations are voluntary and non-refundable unless otherwise stated.
+Houston Women in Bioinformatics is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible to the extent permitted by law. We may offer online donations via secure third-party payment processors. By donating, you agree to provide accurate payment information. All donations are voluntary and non-refundable unless otherwise stated.
 
 ## 4. Privacy Policy
 
-Your privacy is important to us. Please review our [Privacy Policy](https://boston-wib.org/privacy) to understand how we collect, use, and protect your information.
+Your privacy is important to us. Please review our [Privacy Policy](https://houston-wib.org/privacy) to understand how we collect, use, and protect your information.
 
 ## 5. Links to Other Websites
 
-Our platform may contain links to third-party web sites or services that are not owned or controlled by the Boston Women in Bioinformatics.
+Our platform may contain links to third-party web sites or services that are not owned or controlled by Houston Women in Bioinformatics.
 
-The organization has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Boston Women in Bioinformatics shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.
+The organization has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Houston Women in Bioinformatics shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.
 
 We strongly encourage you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
 
@@ -45,7 +45,7 @@ All content provided is for general information and educational purposes only. W
 
 ## 7. Limitation of Liability
 
-To the fullest extent permitted by law, Boston Women in Bioinformatics shall not be liable for any special, indirect, incidental, or consequential damages resulting from your use or inability to use this site.
+To the fullest extent permitted by law, Houston Women in Bioinformatics shall not be liable for any special, indirect, incidental, or consequential damages resulting from your use or inability to use this site.
 
 ## 8. Termination
 
@@ -65,4 +65,4 @@ We reserve the right, at our sole discretion, to modify or replace these Terms a
 
 If you have any questions about these Terms and Conditions, you can contact us:
 
-- By email: [communications@boston-wib.org](mailto:communications@boston-wib.org)
+- By email: [womeninbioinformaticshtx@gmail.com](mailto:womeninbioinformaticshtx@gmail.com)
